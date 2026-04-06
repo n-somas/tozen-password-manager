@@ -1,0 +1,43 @@
+# IntelliJ
+.idea/
+*.iml
+
+# Build
+out/
+build/
+target/
+bin/
+
+# Java
+*.class
+*.jar
+*.war
+
+# Logs
+*.log
+
+# Env
+.env
+
+# DB / lokale Daten
+*.db
+*.sqlite
+*.sqlite3
+*.mv.db
+data/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# sensible Dateien
+*.key
+*.pem
+*.p12
+*.jks
+*.keystore
+
+# Packaging / generated files
+dist/
+dependency-reduced-pom.xml
+META-INF/

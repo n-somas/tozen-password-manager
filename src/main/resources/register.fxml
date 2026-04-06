@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Import der benötigten JavaFX-Klassen -->
+<?import javafx.geometry.Insets?>   <!-- Für Innenabstände (Padding) -->
+<?import javafx.scene.control.*?>    <!-- Label, TextField, PasswordField, Button -->
+<?import javafx.scene.layout.*?>     <!-- AnchorPane, VBox, HBox Layouts -->
+
+<!--
+    Hauptlayout: AnchorPane
+    - Ermöglicht präzise Positionierung von Inhalten
+    - Controller: controller.RegisterController
+    - prefHeight / prefWidth: Vorgabemaße für das Fenster
+-->
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.RegisterController"
+            prefHeight="360.0" prefWidth="420.0">
+
+    <children>
+        <!--
+            Innenlayout: VBox
+            - Vertikale Anordnung der Elemente
+            - spacing: Abstand zwischen Elementen
+            - alignment: Zentrierte Ausrichtung
+            - AnchorPane-Positionierung: 10px Abstand zu allen Seiten
+        -->
+        <VBox spacing="12" alignment="CENTER"
+              AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="10.0"
+              AnchorPane.rightAnchor="10.0" AnchorPane.bottomAnchor="10.0">
+
+            <!-- Innenabstand des Inhalts -->
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <!-- Überschrift -->
+            <Label text="Neuen Benutzer anlegen"
+                   style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+            <!-- Eingabefelder für Benutzername & Passwort -->
+            <TextField fx:id="usernameField" promptText="Benutzername" />
+            <PasswordField fx:id="passwordField" promptText="Passwort" />
+            <PasswordField fx:id="confirmPasswordField" promptText="Passwort bestätigen" />
+
+            <!-- Recovery-Key-Anzeige -->
+            <Label text="Recovery-Key:" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="recoveryKeyField"
+                       promptText="Wird nach der Erstellung angezeigt"
+                       editable="false"
+                       mouseTransparent="true"
+                       focusTraversable="false" />
+
+            <!-- Meldungslabel für Fehler oder Bestätigungen -->
+            <Label fx:id="messageLabel" textFill="red" wrapText="true" maxWidth="Infinity"/>
+
+            <!-- Button-Leiste -->
+            <HBox spacing="10">
+                <!-- Button zur Benutzererstellung -->
+                <Button text="Benutzer erstellen" onAction="#onRegister" />
+                <!-- Button zum Schließen des Fensters -->
+                <Button text="Schließen" onAction="#onClose" />
+            </HBox>
+        </VBox>
+    </children>
+</AnchorPane>
+
+

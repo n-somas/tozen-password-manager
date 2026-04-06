@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Import der benötigten JavaFX-Klassen -->
+<?import javafx.geometry.Insets?>   <!-- Für Innenabstände (Padding) -->
+<?import javafx.scene.control.*?>    <!-- Label, TextField, PasswordField, Button -->
+<?import javafx.scene.layout.*?>     <!-- VBox und HBox Layouts -->
+
+<!--
+    Layout: VBox
+    - Enthält die gesamte Passwort-Wiederherstellungsmaske
+    - Controller: controller.RecoveryController
+    - spacing: Abstand zwischen den Elementen
+    - alignment: Zentrierte Anordnung
+    - style: Padding um den Inhalt
+-->
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.RecoveryController"
+      spacing="10" alignment="CENTER" style="-fx-padding: 20;">
+
+    <!-- Überschrift -->
+    <Label text="Passwort wiederherstellen"
+           style="-fx-font-size: 18; -fx-font-weight: bold;" />
+
+    <!-- Eingabe für Benutzernamen -->
+    <TextField fx:id="usernameField" promptText="Benutzername" />
+
+    <!-- Eingabe für Recovery-Key -->
+    <TextField fx:id="recoveryKeyField"
+               promptText="Recovery-Key (z. B. 1111-2222-3333-4444-5555)" />
+
+    <!-- Eingabe für neues Passwort -->
+    <PasswordField fx:id="newPasswordField" promptText="Neues Passwort" />
+
+    <!-- Passwort-Bestätigung -->
+    <PasswordField fx:id="confirmPasswordField" promptText="Passwort bestätigen" />
+
+    <!-- Meldungsbereich für Fehler oder Status -->
+    <Label fx:id="messageLabel"
+           textFill="red"
+           wrapText="true"
+           maxWidth="Infinity" />
+
+    <!-- Button-Reihe -->
+    <HBox spacing="10">
+        <!-- Button zum Zurücksetzen des Passworts -->
+        <Button text="Zurücksetzen" onAction="#onRecover" />
+
+        <!-- Button zum Schließen des Fensters -->
+        <Button text="Schließen" onAction="#onClose" />
+    </HBox>
+
+</VBox>

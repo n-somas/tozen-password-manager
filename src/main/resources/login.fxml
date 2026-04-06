@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Import der benötigten JavaFX-Layout- und Steuerelement-Klassen -->
+<?import javafx.scene.layout.VBox?> <!-- Vertikale Anordnung der Elemente -->
+<?import javafx.scene.control.*?>   <!-- Label, TextField, PasswordField, Button -->
+<?import javafx.geometry.Insets?>   <!-- Innenabstände (Padding) -->
+
+<!--
+    Layout: VBox
+    - Enthält die komplette Login-Maske
+    - Controller: controller.LoginController
+    - spacing: Abstand zwischen Elementen
+    - alignment: zentrierte Anordnung
+-->
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="controller.LoginController"
+      spacing="10" alignment="CENTER">
+
+    <!-- Innenabstand für den gesamten Inhalt -->
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Überschrift des Login-Fensters -->
+    <Label text="Tozen Passwort-Manager" style="-fx-font-size: 16;" />
+
+    <!-- Eingabefeld für Benutzernamen -->
+    <TextField fx:id="usernameField" promptText="Benutzername" />
+
+    <!-- Eingabefeld für Passwort (verdeckt) -->
+    <PasswordField fx:id="passwordField" promptText="Passwort" />
+
+    <!-- Fehlermeldungsanzeige (rot eingefärbt) -->
+    <Label fx:id="errorLabel" textFill="red" />
+
+    <!-- Login-Button: ruft onLogin() im Controller auf -->
+    <Button text="Login" onAction="#onLogin" />
+
+    <!-- Button zum Öffnen des Registrierungsdialogs -->
+    <Button text="Neuen Benutzer anlegen" onAction="#onOpenRegister" />
+
+    <!-- Button zum Öffnen des Passwort-Wiederherstellungsdialogs -->
+    <Button text="Passwort vergessen?" onAction="#onOpenRecovery" />
+
+</VBox>

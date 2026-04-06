@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Import der benötigten JavaFX-Klassen -->
+<?import javafx.scene.control.*?>    <!-- Label, Button, TextField, TableView, TableColumn -->
+<?import javafx.scene.layout.*?>     <!-- AnchorPane, VBox -->
+<?import javafx.geometry.Insets?>    <!-- Innenabstände (Padding) -->
+
+<!--
+    Hauptlayout: AnchorPane
+    - Ermöglicht präzise Ankerpositionierung von UI-Elementen
+    - Controller: controller.VaultController
+    - Größe: 600x400 Pixel
+-->
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.VaultController"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <!--
+        Innenlayout: VBox
+        - Vertikale Anordnung aller Elemente
+        - spacing: 10px Abstand zwischen Elementen
+        - alignment: Inhalte oben zentriert
+        - Anker: 10px Abstand zu allen Seiten des AnchorPane
+    -->
+    <VBox spacing="10" alignment="TOP_CENTER"
+          AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="10.0"
+          AnchorPane.rightAnchor="10.0" AnchorPane.bottomAnchor="10.0">
+
+        <!-- Überschrift -->
+        <Label text=" Passwort-Tresor"
+               style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+
+        <!-- Button zum Hinzufügen eines neuen Eintrags -->
+        <Button text="➕ Neuer Eintrag" onAction="#onAddEntry" />
+
+        <!-- Suchfeld -->
+        <TextField fx:id="searchField"
+                   promptText="Suche nach Website oder Benutzername…" />
+
+        <!--
+            Tabelle für gespeicherte Passwörter
+            - Enthält Spalten für Website, Benutzername, Passwort und Aktionen
+            - prefHeight: 350px
+        -->
+        <TableView fx:id="vaultTable" prefHeight="350">
+            <columns>
+                <TableColumn fx:id="websiteColumn" text="Webseite" prefWidth="150" />
+                <TableColumn fx:id="usernameColumn" text="Benutzername" prefWidth="150" />
+                <TableColumn fx:id="passwordColumn" text="Passwort" prefWidth="150" />
+                <TableColumn fx:id="actionColumn" text="Aktion" prefWidth="120" />
+            </columns>
+        </TableView>
+    </VBox>
+</AnchorPane>

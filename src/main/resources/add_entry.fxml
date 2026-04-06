@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Import der benötigten JavaFX-Klassen -->
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!--
+    Layout: VBox
+    - Enthält die komplette Maske zum Hinzufügen eines neuen Passwort-Eintrags
+    - Controller: controller.AddEntryController
+-->
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.AddEntryController"
+      spacing="10" alignment="CENTER" style="-fx-padding: 20;">
+
+    <!-- Überschrift für das Fenster -->
+    <Label text="➕ Neuen Eintrag hinzufügen" style="-fx-font-size: 16;" />
+
+    <!-- Eingabefeld für den Namen der Plattform / Webseite -->
+    <TextField fx:id="platformField" promptText="Webseite" />
+
+    <!-- Eingabefeld für den Benutzernamen -->
+    <TextField fx:id="usernameField" promptText="Benutzername" />
+
+    <!--
+        Zeile für Passwort-Eingabe + Button zur automatischen Generierung
+        - PasswordField: verdeckte Eingabe
+        - Button: ruft Methode onGeneratePassword() im Controller auf
+    -->
+    <HBox spacing="5">
+        <PasswordField fx:id="passwordField" promptText="Passwort" HBox.hgrow="ALWAYS" />
+        <Button text="Generieren" onAction="#onGeneratePassword" />
+    </HBox>
+
+    <!-- Anzeige der Passwortstärke (dynamisch aktualisiert) -->
+    <Label fx:id="strengthLabel" text="Passwortstärke: –" />
+
+    <!-- Status- / Fehlermeldungen nach Speichern oder Validierung -->
+    <Label fx:id="messageLabel" />
+
+    <!-- Button zum Speichern des neuen Eintrags -->
+    <Button text="Speichern" onAction="#onSave" />
+
+</VBox>
