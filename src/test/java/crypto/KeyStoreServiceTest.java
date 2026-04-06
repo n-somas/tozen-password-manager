@@ -9,7 +9,7 @@ class KeyStoreServiceTest {
 
     @Test
     void deriveKek_isDeterministicAndHasCorrectLength() throws Exception {
-        char[] secret = "MasterPasswort!123".toCharArray();
+        char[] secret = "DummySecretValue".toCharArray();
         byte[] salt = HashUtil.randomBytes(16);
 
         byte[] k1 = KeyStoreService.deriveKek(secret, salt);
