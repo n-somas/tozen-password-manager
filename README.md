@@ -42,3 +42,14 @@ src/
 │  └─ resources/
 └─ test/
    └─ java/
+```
+## Screenshots
+
+### Login
+![Login](docs/screenshots/login.png)
+
+### Registrierung
+![Registrierung](docs/screenshots/register.png)
+
+### Tresoransicht
+![Tresoransicht](docs/screenshots/vault.png)
