@@ -46,10 +46,10 @@ src/
 ## Screenshots
 
 ### Login
-<img src="docs/screenshots/login.png" alt="Login" width="250">
+<img src="docs/screenshots/login.png" alt="Login" width="300">
 
 ### Registrierung
-<img src="docs/screenshots/register.png" alt="Registrierung" width="250">
+<img src="docs/screenshots/register.png" alt="Registrierung" width="300">
 
 ### Tresoransicht
-<img src="docs/screenshots/vault.png" alt="Tresoransicht" width="250">
+<img src="docs/screenshots/vault.png" alt="Tresoransicht" width="300">
