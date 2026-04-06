@@ -46,10 +46,10 @@ src/
 ## Screenshots
 
 ### Login
-![Login](docs/screenshots/login.png)
+<img src="docs/screenshots/login.png" alt="Login" width="500">
 
 ### Registrierung
-![Registrierung](docs/screenshots/register.png)
+<img src="docs/screenshots/register.png" alt="Registrierung" width="500">
 
 ### Tresoransicht
-![Tresoransicht](docs/screenshots/vault.png)
+<img src="docs/screenshots/vault.png" alt="Tresoransicht" width="500">
