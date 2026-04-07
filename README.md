@@ -43,6 +43,39 @@ src/
 └─ test/
    └─ java/
 ```
+## Start des Projekts
+
+### Voraussetzungen
+
+- Java 17
+- Maven
+- IntelliJ IDEA oder eine andere Java-IDE
+
+### Projekt lokal starten
+
+1. Repository klonen:
+
+   ```bash
+   git clone https://github.com/n-somas/tozen-password-manager.git
+   ```
+
+2. In den Projektordner wechseln:
+
+   ```bash
+   cd tozen-password-manager
+   ```
+
+3. Das Projekt in IntelliJ IDEA öffnen.
+
+4. Maven-Abhängigkeiten laden.
+
+5. Die Anwendung über die Main-Klasse in der IDE starten.
+
+### Tests ausführen
+
+```bash
+mvn test
+```
 ## Screenshots
 
 ### Login
@@ -53,3 +86,8 @@ src/
 
 ### Tresoransicht
 <img src="docs/screenshots/vault.png" alt="Tresoransicht" width="300">
+
+## Autor
+
+**Niloshan Somasundaram**  
+Umschulung zum Fachinformatiker für Anwendungsentwicklung
