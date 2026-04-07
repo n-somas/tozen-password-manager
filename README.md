@@ -1,6 +1,8 @@
-# TOZEN Password Manager
+# # TOZEN Passwort-Manager
 
 Ein lokaler Offline-Passwort-Manager, entwickelt mit **Java**, **JavaFX**, **SQLite** und **NitriteDB**.
+
+> **Hinweis:** Dieses Repository ist ein Demo- und Bewerbungsprojekt. Es enthält keine produktiven Benutzerdaten, keine echten Zugangsdaten und keine sensiblen lokalen Datenbanken.
 
 ## Überblick
 
