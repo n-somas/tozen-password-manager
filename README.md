@@ -1,4 +1,4 @@
-# # TOZEN Passwort-Manager
+# TOZEN Passwort-Manager
 
 Ein lokaler Offline-Passwort-Manager, entwickelt mit **Java**, **JavaFX**, **SQLite** und **NitriteDB**.
 
