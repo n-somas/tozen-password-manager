@@ -92,4 +92,4 @@ mvn test
 ## Autor
 
 **Niloshan Somasundaram**  
-Umschulung zum Fachinformatiker für Anwendungsentwicklung
+
