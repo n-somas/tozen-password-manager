@@ -2,23 +2,23 @@
 
 Ein lokaler Offline-Passwortmanager, entwickelt mit **Java**, **JavaFX**, **SQLite** und **NitriteDB**.
 
-> **Hinweis:** Dieses Repository ist ein Demo- und Bewerbungsprojekt. Es enthÃ¤lt keine produktiven Benutzerdaten, keine echten Zugangsdaten und keine sensiblen lokalen Datenbanken.
+> **Hinweis:** Dieses Repository ist ein Demo- und Bewerbungsprojekt. Es enthält keine produktiven Benutzerdaten, keine echten Zugangsdaten und keine sensiblen lokalen Datenbanken.
 
-## Ãœberblick
+## Überblick
 
-PMX wurde im Rahmen meiner Umschulung zum **Fachinformatiker fÃ¼r Anwendungsentwicklung** entwickelt.
+PMX wurde im Rahmen meiner Umschulung zum **Fachinformatiker für Anwendungsentwicklung** entwickelt.
 
-Ziel war die Umsetzung eines lokalen Passwortmanagers mit Fokus auf **Sicherheit**, **Offline-Betrieb** und **klarer BenutzerfÃ¼hrung**. Die Anwendung speichert Zugangsdaten lokal, verschlÃ¼sselt sensible Daten und verzichtet bewusst auf Cloud-Synchronisierung.
+Ziel war die Umsetzung eines lokalen Passwortmanagers mit Fokus auf **Sicherheit**, **Offline-Betrieb** und **klarer Benutzerführung**. Die Anwendung speichert Zugangsdaten lokal, verschlüsselt sensible Daten und verzichtet bewusst auf Cloud-Synchronisierung.
 
 ## Funktionen
 
 - Benutzerregistrierung und Login
-- Lokale, verschlÃ¼sselte Speicherung von Zugangsdaten
+- Lokale, verschlüsselte Speicherung von Zugangsdaten
 - Passwortgenerator
 - Recovery-Funktion
-- Ãœbersichtliche Tresoransicht fÃ¼r gespeicherte EintrÃ¤ge
+- Übersichtliche Tresoransicht für gespeicherte Einträge
 - Suche nach Website oder Benutzername
-- EintrÃ¤ge hinzufÃ¼gen, bearbeiten und lÃ¶schen
+- Einträge hinzufügen, bearbeiten und löschen
 
 ## Technologien
 
@@ -31,8 +31,8 @@ Ziel war die Umsetzung eines lokalen Passwortmanagers mit Fokus auf **Sicherheit
 
 ## Sicherheitskonzept
 
-- **AES-256-GCM** zur VerschlÃ¼sselung sensibler Daten
-- **PBKDF2-HMAC-SHA-256** zur SchlÃ¼sselableitung
+- **AES-256-GCM** zur Verschlüsselung sensibler Daten
+- **PBKDF2-HMAC-SHA-256** zur Schlüsselableitung
 - Trennung von Benutzerverwaltung und Tresordaten
 - Keine Speicherung produktiver Daten im Repository
 - Lokaler Betrieb ohne externe Synchronisierung
@@ -59,7 +59,7 @@ Ziel war die Umsetzung eines lokalen Passwortmanagers mit Fokus auf **Sicherheit
    cd pmx-password-manager
    ```
 
-3. Maven-AbhÃ¤ngigkeiten laden:
+3. Maven-Abhängigkeiten laden:
 
    ```bash
    mvn clean install
@@ -71,7 +71,7 @@ Ziel war die Umsetzung eines lokalen Passwortmanagers mit Fokus auf **Sicherheit
    mvn javafx:run
    ```
 
-### Tests ausfÃ¼hren
+### Tests ausführen
 
 ```bash
 mvn test
@@ -89,17 +89,17 @@ mvn test
   <img src="docs/screenshots/vault.png" alt="Tresor" width="700">
 </p>
 
-### EintrÃ¤ge verwalten
+### Einträge verwalten
 
 <p>
-  <img src="docs/screenshots/add-entry.png" alt="Eintrag hinzufÃ¼gen" width="360">
+  <img src="docs/screenshots/add-entry.png" alt="Eintrag hinzufügen" width="360">
   <img src="docs/screenshots/edit-entry.png" alt="Eintrag bearbeiten" width="360">
 </p>
 
-### LÃ¶schen-Dialog
+### Löschen-Dialog
 
 <p>
-  <img src="docs/screenshots/delete-dialog.png" alt="LÃ¶schen-Dialog" width="420">
+  <img src="docs/screenshots/delete-dialog.png" alt="Löschen-Dialog" width="420">
 </p>
 
 ## Autor
