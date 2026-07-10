@@ -1,67 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- Import der benötigten JavaFX-Klassen -->
-<?import javafx.geometry.Insets?>   <!-- Für Innenabstände (Padding) -->
-<?import javafx.scene.control.*?>    <!-- Label, TextField, PasswordField, Button -->
-<?import javafx.scene.layout.*?>     <!-- AnchorPane, VBox, HBox Layouts -->
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<!--
-    Hauptlayout: AnchorPane
-    - Ermöglicht präzise Positionierung von Inhalten
-    - Controller: controller.RegisterController
-    - prefHeight / prefWidth: Vorgabemaße für das Fenster
--->
-<AnchorPane xmlns="http://javafx.com/javafx"
+<BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="controller.RegisterController"
-            prefHeight="360.0" prefWidth="420.0">
+            prefWidth="540.0" prefHeight="680.0"
+            styleClass="dialog-screen"
+            stylesheets="@styles.css">
 
-    <children>
-        <!--
-            Innenlayout: VBox
-            - Vertikale Anordnung der Elemente
-            - spacing: Abstand zwischen Elementen
-            - alignment: Zentrierte Ausrichtung
-            - AnchorPane-Positionierung: 10px Abstand zu allen Seiten
-        -->
-        <VBox spacing="12" alignment="CENTER"
-              AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="10.0"
-              AnchorPane.rightAnchor="10.0" AnchorPane.bottomAnchor="10.0">
+    <top>
+        <HBox alignment="CENTER_LEFT"
+              spacing="10"
+              styleClass="title-bar"
+              onMousePressed="#onWindowMousePressed"
+              onMouseDragged="#onWindowMouseDragged">
+            <Label text="PMX" styleClass="titlebar-logo"/>
+            <Label text="Benutzer anlegen" styleClass="titlebar-window-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="X" onAction="#onCloseWindow" styleClass="titlebar-close-button"/>
+        </HBox>
+    </top>
 
-            <!-- Innenabstand des Inhalts -->
+    <center>
+        <VBox alignment="CENTER" spacing="18">
             <padding>
-                <Insets top="20" right="20" bottom="20" left="20"/>
+                <Insets top="32" right="32" bottom="32" left="32"/>
             </padding>
 
-            <!-- Überschrift -->
-            <Label text="Neuen Benutzer anlegen"
-                   style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+            <VBox styleClass="dialog-card" spacing="15" alignment="CENTER">
+                <VBox spacing="4" alignment="CENTER">
+                    <Label text="Benutzer anlegen" styleClass="dialog-title"/>
+                    <Label text="Lokales Konto fuer den Passwort-Tresor erstellen." styleClass="dialog-subtitle"/>
+                </VBox>
 
-            <!-- Eingabefelder für Benutzername & Passwort -->
-            <TextField fx:id="usernameField" promptText="Benutzername" />
-            <PasswordField fx:id="passwordField" promptText="Passwort" />
-            <PasswordField fx:id="confirmPasswordField" promptText="Passwort bestätigen" />
+                <VBox spacing="4" alignment="CENTER_LEFT">
+                    <Label text="Benutzername" styleClass="field-label"/>
+                    <TextField fx:id="usernameField" promptText="Benutzername eingeben" styleClass="text-input"/>
+                </VBox>
 
-            <!-- Recovery-Key-Anzeige -->
-            <Label text="Recovery-Key:" style="-fx-font-weight: bold;"/>
-            <TextField fx:id="recoveryKeyField"
-                       promptText="Wird nach der Erstellung angezeigt"
-                       editable="false"
-                       mouseTransparent="true"
-                       focusTraversable="false" />
+                <VBox spacing="4" alignment="CENTER_LEFT">
+                    <Label text="Master-Passwort" styleClass="field-label"/>
+                    <PasswordField fx:id="passwordField" promptText="Master-Passwort eingeben" styleClass="text-input"/>
+                </VBox>
 
-            <!-- Meldungslabel für Fehler oder Bestätigungen -->
-            <Label fx:id="messageLabel" textFill="red" wrapText="true" maxWidth="Infinity"/>
+                <VBox spacing="4" alignment="CENTER_LEFT">
+                    <Label text="Passwort bestaetigen" styleClass="field-label"/>
+                    <PasswordField fx:id="confirmPasswordField" promptText="Passwort erneut eingeben" styleClass="text-input"/>
+                </VBox>
 
-            <!-- Button-Leiste -->
-            <HBox spacing="10">
-                <!-- Button zur Benutzererstellung -->
-                <Button text="Benutzer erstellen" onAction="#onRegister" />
-                <!-- Button zum Schließen des Fensters -->
-                <Button text="Schließen" onAction="#onClose" />
-            </HBox>
+                <VBox spacing="4" alignment="CENTER_LEFT">
+                    <Label text="Recovery-Key" styleClass="field-label"/>
+                    <TextField fx:id="recoveryKeyField"
+                               promptText="Wird nach der Erstellung angezeigt"
+                               editable="false"
+                               styleClass="text-input"/>
+                    <Label text="Recovery-Key sicher notieren. Ohne ihn ist keine Wiederherstellung moeglich." styleClass="hint-label" wrapText="true"/>
+                </VBox>
+
+                <Label fx:id="messageLabel" styleClass="error-label" wrapText="true" maxWidth="Infinity"/>
+
+                <HBox spacing="10" alignment="CENTER">
+                    <Button text="Benutzer erstellen" onAction="#onRegister" styleClass="primary-button"/>
+                    <Button text="Schliessen" onAction="#onClose" styleClass="secondary-button"/>
+                </HBox>
+            </VBox>
         </VBox>
-    </children>
-</AnchorPane>
-
-
+    </center>
+</BorderPane>

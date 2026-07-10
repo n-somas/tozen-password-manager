@@ -19,6 +19,9 @@ import util.PasswordGenerator;             // Passwortgenerator & Stärke
 
 public class AddEntryController {
 
+    private double windowDragOffsetX;
+    private double windowDragOffsetY;
+
     // FXML-Felder
     @FXML private TextField platformField;      // Plattform/Webseite
     @FXML private TextField usernameField;      // Benutzername
@@ -180,6 +183,25 @@ public class AddEntryController {
     // Fenster schließen
     private void closeWindow() {
         Stage stage = (Stage) platformField.getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
+    private void onWindowMousePressed(javafx.scene.input.MouseEvent event) {
+        windowDragOffsetX = event.getSceneX();
+        windowDragOffsetY = event.getSceneY();
+    }
+
+    @FXML
+    private void onWindowMouseDragged(javafx.scene.input.MouseEvent event) {
+        javafx.stage.Stage stage = (javafx.stage.Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        stage.setX(event.getScreenX() - windowDragOffsetX);
+        stage.setY(event.getScreenY() - windowDragOffsetY);
+    }
+
+    @FXML
+    private void onCloseWindow() {
+        javafx.stage.Stage stage = (javafx.stage.Stage) platformField.getScene().getWindow();
         stage.close();
     }
 }

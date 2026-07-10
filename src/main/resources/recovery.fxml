@@ -1,53 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- Import der benötigten JavaFX-Klassen -->
-<?import javafx.geometry.Insets?>   <!-- Für Innenabstände (Padding) -->
-<?import javafx.scene.control.*?>    <!-- Label, TextField, PasswordField, Button -->
-<?import javafx.scene.layout.*?>     <!-- VBox und HBox Layouts -->
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<!--
-    Layout: VBox
-    - Enthält die gesamte Passwort-Wiederherstellungsmaske
-    - Controller: controller.RecoveryController
-    - spacing: Abstand zwischen den Elementen
-    - alignment: Zentrierte Anordnung
-    - style: Padding um den Inhalt
--->
-<VBox xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="controller.RecoveryController"
-      spacing="10" alignment="CENTER" style="-fx-padding: 20;">
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.RecoveryController"
+            prefWidth="540.0" prefHeight="620.0"
+            styleClass="dialog-screen"
+            stylesheets="@styles.css">
 
-    <!-- Überschrift -->
-    <Label text="Passwort wiederherstellen"
-           style="-fx-font-size: 18; -fx-font-weight: bold;" />
+    <top>
+        <HBox alignment="CENTER_LEFT"
+              spacing="10"
+              styleClass="title-bar"
+              onMousePressed="#onWindowMousePressed"
+              onMouseDragged="#onWindowMouseDragged">
+            <Label text="PMX" styleClass="titlebar-logo"/>
+            <Label text="Wiederherstellung" styleClass="titlebar-window-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="X" onAction="#onCloseWindow" styleClass="titlebar-close-button"/>
+        </HBox>
+    </top>
 
-    <!-- Eingabe für Benutzernamen -->
-    <TextField fx:id="usernameField" promptText="Benutzername" />
+    <center>
+        <VBox alignment="CENTER" spacing="18">
+            <padding>
+                <Insets top="32" right="32" bottom="32" left="32"/>
+            </padding>
 
-    <!-- Eingabe für Recovery-Key -->
-    <TextField fx:id="recoveryKeyField"
-               promptText="Recovery-Key (z. B. 1111-2222-3333-4444-5555)" />
+            <VBox styleClass="dialog-card" spacing="15" alignment="CENTER">
+                <VBox spacing="4" alignment="CENTER">
+                    <Label text="Passwort wiederherstellen" styleClass="dialog-title"/>
+                    <Label text="Master-Passwort mit Recovery-Key neu setzen." styleClass="dialog-subtitle"/>
+                </VBox>
 
-    <!-- Eingabe für neues Passwort -->
-    <PasswordField fx:id="newPasswordField" promptText="Neues Passwort" />
+                <VBox spacing="4" alignment="CENTER_LEFT">
+                    <Label text="Benutzername" styleClass="field-label"/>
+                    <TextField fx:id="usernameField" promptText="Benutzername eingeben" styleClass="text-input"/>
+                </VBox>
 
-    <!-- Passwort-Bestätigung -->
-    <PasswordField fx:id="confirmPasswordField" promptText="Passwort bestätigen" />
+                <VBox spacing="4" alignment="CENTER_LEFT">
+                    <Label text="Recovery-Key" styleClass="field-label"/>
+                    <TextField fx:id="recoveryKeyField" promptText="1111-2222-3333-4444-5555" styleClass="text-input"/>
+                </VBox>
 
-    <!-- Meldungsbereich für Fehler oder Status -->
-    <Label fx:id="messageLabel"
-           textFill="red"
-           wrapText="true"
-           maxWidth="Infinity" />
+                <VBox spacing="4" alignment="CENTER_LEFT">
+                    <Label text="Neues Master-Passwort" styleClass="field-label"/>
+                    <PasswordField fx:id="newPasswordField" promptText="Neues Passwort eingeben" styleClass="text-input"/>
+                </VBox>
 
-    <!-- Button-Reihe -->
-    <HBox spacing="10">
-        <!-- Button zum Zurücksetzen des Passworts -->
-        <Button text="Zurücksetzen" onAction="#onRecover" />
+                <VBox spacing="4" alignment="CENTER_LEFT">
+                    <Label text="Passwort bestaetigen" styleClass="field-label"/>
+                    <PasswordField fx:id="confirmPasswordField" promptText="Passwort erneut eingeben" styleClass="text-input"/>
+                </VBox>
 
-        <!-- Button zum Schließen des Fensters -->
-        <Button text="Schließen" onAction="#onClose" />
-    </HBox>
+                <Label fx:id="messageLabel" styleClass="error-label" wrapText="true" maxWidth="Infinity"/>
 
-</VBox>
+                <HBox spacing="10" alignment="CENTER">
+                    <Button text="Zuruecksetzen" onAction="#onRecover" styleClass="primary-button"/>
+                    <Button text="Schliessen" onAction="#onClose" styleClass="secondary-button"/>
+                </HBox>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>

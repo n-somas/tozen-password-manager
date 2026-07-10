@@ -13,7 +13,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
 
-        Thread.setDefaultUncaughtExceptionHandler((t, e) -> {
+        primaryStage.initStyle(javafx.stage.StageStyle.UNDECORATED);
+Thread.setDefaultUncaughtExceptionHandler((t, e) -> {
             e.printStackTrace();
             Platform.runLater(() -> {
                 new Alert(Alert.AlertType.ERROR) {{
@@ -32,7 +33,7 @@ public class Main extends Application {
             Parent root = loader.load();
 
             Scene scene = new Scene(root, 480, 560);
-            primaryStage.setTitle("PasswortManagerX – Login");
+            primaryStage.setTitle("PMX");
             primaryStage.setScene(scene);
             primaryStage.setMinWidth(440);
             primaryStage.setMinHeight(520);

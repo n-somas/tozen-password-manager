@@ -22,9 +22,13 @@ import javafx.scene.Scene;             // Szene
 import javafx.scene.control.Label;     // Meldungen
 import javafx.scene.control.PasswordField; // Passwort-Eingabe
 import javafx.scene.control.TextField; // Text-Eingabe
-import javafx.stage.Stage;             // Fenster/Stage steuern
+import javafx.stage.Stage;
+import javafx.scene.input.MouseEvent;             // Fenster/Stage steuern
 
 public class LoginController {
+
+    private double windowDragOffsetX;
+    private double windowDragOffsetY;
 
     // FXML-Felder
     @FXML private TextField usernameField;
@@ -81,7 +85,7 @@ public class LoginController {
             Parent root = loader.load();
             Stage stage = (Stage) usernameField.getScene().getWindow();
             stage.setScene(new Scene(root));
-            stage.setTitle("PasswortManagerX â€“ Tresor");
+            stage.setTitle("PMX - Tresor");
             // stage.show(); // nicht nötig, vorhandenes Fenster
 
         } catch (Exception e) {
@@ -97,7 +101,8 @@ public class LoginController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/register.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
-            stage.setTitle("Benutzer registrieren");
+            stage.initStyle(javafx.stage.StageStyle.UNDECORATED);
+            stage.setTitle("PMX");
             stage.setScene(new Scene(root));
             stage.show();
         } catch (Exception e) {
@@ -112,11 +117,37 @@ public class LoginController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/recovery.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
-            stage.setTitle("Passwort wiederherstellen");
+            stage.initStyle(javafx.stage.StageStyle.UNDECORATED);
+            stage.setTitle("PMX");
             stage.setScene(new Scene(root));
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void onWindowMousePressed(MouseEvent event) {
+        windowDragOffsetX = event.getSceneX();
+        windowDragOffsetY = event.getSceneY();
+    }
+
+    @FXML
+    private void onWindowMouseDragged(MouseEvent event) {
+        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        stage.setX(event.getScreenX() - windowDragOffsetX);
+        stage.setY(event.getScreenY() - windowDragOffsetY);
+    }
+
+    @FXML
+    private void onMinimizeWindow() {
+        Stage stage = (Stage) usernameField.getScene().getWindow();
+        stage.setIconified(true);
+    }
+
+    @FXML
+    private void onCloseWindow() {
+        Stage stage = (Stage) usernameField.getScene().getWindow();
+        stage.close();
     }
 }

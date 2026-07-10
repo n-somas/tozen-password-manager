@@ -17,6 +17,9 @@ import crypto.KeyStoreService;           // KEK-Ableitung, Wrap/Unwrap
 
 public class RecoveryController {
 
+    private double windowDragOffsetX;
+    private double windowDragOffsetY;
+
     // FXML-Felder
     @FXML private TextField usernameField;
     @FXML private TextField recoveryKeyField;
@@ -109,5 +112,24 @@ public class RecoveryController {
     }
     private String safeTrim(String s) {
         return s == null ? "" : s.trim();
+    }
+
+    @FXML
+    private void onWindowMousePressed(javafx.scene.input.MouseEvent event) {
+        windowDragOffsetX = event.getSceneX();
+        windowDragOffsetY = event.getSceneY();
+    }
+
+    @FXML
+    private void onWindowMouseDragged(javafx.scene.input.MouseEvent event) {
+        javafx.stage.Stage stage = (javafx.stage.Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        stage.setX(event.getScreenX() - windowDragOffsetX);
+        stage.setY(event.getScreenY() - windowDragOffsetY);
+    }
+
+    @FXML
+    private void onCloseWindow() {
+        javafx.stage.Stage stage = (javafx.stage.Stage) usernameField.getScene().getWindow();
+        stage.close();
     }
 }

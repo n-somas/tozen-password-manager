@@ -1,45 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- Import der benötigten JavaFX-Klassen -->
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<!--
-    Layout: VBox
-    - Enthält die komplette Maske zum Hinzufügen eines neuen Passwort-Eintrags
-    - Controller: controller.AddEntryController
--->
-<VBox xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="controller.AddEntryController"
-      spacing="10" alignment="CENTER" style="-fx-padding: 20;">
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.AddEntryController"
+            prefWidth="560.0" prefHeight="650.0"
+            styleClass="dialog-screen"
+            stylesheets="@styles.css">
 
-    <!-- Überschrift für das Fenster -->
-    <Label text="➕ Neuen Eintrag hinzufügen" style="-fx-font-size: 16;" />
+    <top>
+        <HBox alignment="CENTER_LEFT"
+              spacing="10"
+              styleClass="title-bar"
+              onMousePressed="#onWindowMousePressed"
+              onMouseDragged="#onWindowMouseDragged">
+            <Label text="PMX" styleClass="titlebar-logo"/>
+            <Label text="Eintrag" styleClass="titlebar-window-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="X" onAction="#onCloseWindow" styleClass="titlebar-close-button"/>
+        </HBox>
+    </top>
 
-    <!-- Eingabefeld für den Namen der Plattform / Webseite -->
-    <TextField fx:id="platformField" promptText="Webseite" />
+    <center>
+        <VBox alignment="CENTER" spacing="18">
+            <padding>
+                <Insets top="30" right="30" bottom="42" left="30"/>
+            </padding>
 
-    <!-- Eingabefeld für den Benutzernamen -->
-    <TextField fx:id="usernameField" promptText="Benutzername" />
+            <VBox styleClass="dialog-card" spacing="17" alignment="CENTER">
+                <VBox spacing="4" alignment="CENTER">
+                    <Label text="Eintrag speichern" styleClass="dialog-title"/>
+                    <Label text="Zugangsdaten lokal verschluesselt ablegen." styleClass="dialog-subtitle"/>
+                </VBox>
 
-    <!--
-        Zeile für Passwort-Eingabe + Button zur automatischen Generierung
-        - PasswordField: verdeckte Eingabe
-        - Button: ruft Methode onGeneratePassword() im Controller auf
-    -->
-    <HBox spacing="5">
-        <PasswordField fx:id="passwordField" promptText="Passwort" HBox.hgrow="ALWAYS" />
-        <Button text="Generieren" onAction="#onGeneratePassword" />
-    </HBox>
+                <VBox spacing="4" alignment="CENTER_LEFT">
+                    <Label text="Webseite / Dienst" styleClass="field-label"/>
+                    <TextField fx:id="platformField" promptText="z. B. github.com" styleClass="text-input"/>
+                </VBox>
 
-    <!-- Anzeige der Passwortstärke (dynamisch aktualisiert) -->
-    <Label fx:id="strengthLabel" text="Passwortstärke: –" />
+                <VBox spacing="4" alignment="CENTER_LEFT">
+                    <Label text="Benutzername" styleClass="field-label"/>
+                    <TextField fx:id="usernameField" promptText="Benutzername oder E-Mail" styleClass="text-input"/>
+                </VBox>
 
-    <!-- Status- / Fehlermeldungen nach Speichern oder Validierung -->
-    <Label fx:id="messageLabel" />
+                <VBox spacing="4" alignment="CENTER_LEFT">
+                    <Label text="Passwort" styleClass="field-label"/>
+                    <HBox spacing="10" alignment="CENTER">
+                        <PasswordField fx:id="passwordField"
+                                       promptText="Passwort eingeben"
+                                       styleClass="text-input"
+                                       prefWidth="220"
+                                       HBox.hgrow="ALWAYS"/>
+                        <Button text="Generieren"
+                                onAction="#onGeneratePassword"
+                                prefWidth="120"
+                                minWidth="120"
+                                maxWidth="120"
+                                styleClass="secondary-button"/>
+                    </HBox>
+                </VBox>
 
-    <!-- Button zum Speichern des neuen Eintrags -->
-    <Button text="Speichern" onAction="#onSave" />
+                <Label fx:id="strengthLabel" text="Passwortstaerke: -" styleClass="hint-label"/>
+                <Label fx:id="messageLabel" styleClass="error-label" wrapText="true" maxWidth="Infinity"/>
 
-</VBox>
+                <Button text="Speichern"
+                        onAction="#onSave"
+                        prefWidth="340"
+                        maxWidth="340"
+                        styleClass="primary-button"/>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>

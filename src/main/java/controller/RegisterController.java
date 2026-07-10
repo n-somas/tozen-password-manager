@@ -19,6 +19,9 @@ import java.security.SecureRandom;
 
 public class RegisterController {
 
+    private double windowDragOffsetX;
+    private double windowDragOffsetY;
+
     private static final SecureRandom SECURE_RANDOM = new SecureRandom();
 
     // FXML-Felder
@@ -125,4 +128,23 @@ public class RegisterController {
                 SECURE_RANDOM.nextInt(10_000),
                 SECURE_RANDOM.nextInt(10_000),
                 SECURE_RANDOM.nextInt(10_000));
-    }}
+    }
+    @FXML
+    private void onWindowMousePressed(javafx.scene.input.MouseEvent event) {
+        windowDragOffsetX = event.getSceneX();
+        windowDragOffsetY = event.getSceneY();
+    }
+
+    @FXML
+    private void onWindowMouseDragged(javafx.scene.input.MouseEvent event) {
+        javafx.stage.Stage stage = (javafx.stage.Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        stage.setX(event.getScreenX() - windowDragOffsetX);
+        stage.setY(event.getScreenY() - windowDragOffsetY);
+    }
+
+    @FXML
+    private void onCloseWindow() {
+        javafx.stage.Stage stage = (javafx.stage.Stage) usernameField.getScene().getWindow();
+        stage.close();
+    }
+}

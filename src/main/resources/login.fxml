@@ -4,45 +4,74 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="controller.LoginController"
-      spacing="18" alignment="CENTER" styleClass="screen" stylesheets="@styles.css">
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.LoginController"
+            prefWidth="480.0" prefHeight="560.0"
+            styleClass="screen"
+            stylesheets="@styles.css">
 
-    <padding>
-        <Insets top="32" right="32" bottom="32" left="32"/>
-    </padding>
-
-    <VBox spacing="8" alignment="CENTER">
-        <Label text="PasswortManagerX" styleClass="title"/>
-        <Label text="Lokaler Offline-Passwortmanager" styleClass="subtitle"/>
-    </VBox>
-
-    <VBox spacing="14" alignment="CENTER" styleClass="card">
-        <VBox spacing="4" alignment="CENTER_LEFT">
-            <Label text="Benutzername" styleClass="field-label"/>
-            <TextField fx:id="usernameField"
-                       promptText="Benutzername eingeben"
-                       styleClass="text-input"/>
-        </VBox>
-
-        <VBox spacing="4" alignment="CENTER_LEFT">
-            <Label text="Master-Passwort" styleClass="field-label"/>
-            <PasswordField fx:id="passwordField"
-                           promptText="Master-Passwort eingeben"
-                           styleClass="text-input"/>
-        </VBox>
-
-        <Label fx:id="errorLabel" styleClass="error-label" wrapText="true" maxWidth="Infinity"/>
-
-        <Button text="Einloggen" onAction="#onLogin" maxWidth="Infinity" styleClass="primary-button"/>
-
-        <HBox spacing="10" alignment="CENTER">
-            <Button text="Benutzer anlegen" onAction="#onOpenRegister" styleClass="secondary-button"/>
-            <Button text="Passwort vergessen" onAction="#onOpenRecovery" styleClass="secondary-button"/>
+    <top>
+        <HBox alignment="CENTER_LEFT"
+              spacing="10"
+              styleClass="title-bar"
+              onMousePressed="#onWindowMousePressed"
+              onMouseDragged="#onWindowMouseDragged">
+            <Label text="PMX" styleClass="titlebar-logo"/>
+            <Label text="Lokaler Passwortmanager" styleClass="titlebar-window-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="_" onAction="#onMinimizeWindow" styleClass="titlebar-button"/>
+            <Button text="X" onAction="#onCloseWindow" styleClass="titlebar-close-button"/>
         </HBox>
-    </VBox>
+    </top>
 
-    <Label text="Keine Cloud. Keine Synchronisierung. Lokale Speicherung." styleClass="footer-note"/>
+    <center>
+        <VBox spacing="18" alignment="CENTER">
+            <padding>
+                <Insets top="30" right="34" bottom="34" left="34"/>
+            </padding>
 
-</VBox>
+            <VBox spacing="4" alignment="CENTER">
+                <Label text="PMX" styleClass="brand-title"/>
+            </VBox>
+
+            <VBox spacing="15" alignment="CENTER" styleClass="card">
+                <VBox spacing="5" alignment="CENTER_LEFT">
+                    <Label text="Benutzername" styleClass="field-label"/>
+                    <TextField fx:id="usernameField"
+                               promptText="Benutzername eingeben"
+                               styleClass="text-input"/>
+                </VBox>
+
+                <VBox spacing="5" alignment="CENTER_LEFT">
+                    <Label text="Master-Passwort" styleClass="field-label"/>
+                    <PasswordField fx:id="passwordField"
+                                   promptText="Master-Passwort eingeben"
+                                   styleClass="text-input"/>
+                </VBox>
+
+                <Label fx:id="errorLabel" styleClass="error-label" wrapText="true" maxWidth="Infinity"/>
+
+                <Button text="Einloggen"
+                        onAction="#onLogin"
+                        defaultButton="true"
+                        prefWidth="340"
+                        maxWidth="340"
+                        styleClass="primary-button"/>
+
+                <HBox spacing="12" alignment="CENTER">
+                    <Button text="Benutzer anlegen"
+                            onAction="#onOpenRegister"
+                            prefWidth="164"
+                            maxWidth="164"
+                            styleClass="secondary-button"/>
+                    <Button text="Passwort vergessen"
+                            onAction="#onOpenRecovery"
+                            prefWidth="164"
+                            maxWidth="164"
+                            styleClass="secondary-button"/>
+                </HBox>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>
