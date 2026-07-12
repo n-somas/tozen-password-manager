@@ -623,3 +623,20 @@
 .icon-copy:hover {
     -fx-background-color: rgba(20, 184, 166, 0.24);
 }
+
+/* PMX table alignment fix */
+.modern-table .column-header .label {
+    -fx-alignment: CENTER;
+    -fx-text-alignment: CENTER;
+    -fx-padding: 0;
+}
+
+.modern-table .table-cell {
+    -fx-alignment: CENTER;
+    -fx-text-alignment: CENTER;
+    -fx-padding: 0 8 0 8;
+}
+
+.modern-table .table-row-cell {
+    -fx-cell-size: 46;
+}
