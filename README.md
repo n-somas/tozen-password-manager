@@ -197,7 +197,7 @@ mvn javafx:run
 
 Aktueller Release Stand: `v1.0.0`
 
-Die Version `v1.0.0` fasst den ersten sauberen Projektstand für GitHub und Bewerbungsgespräche zusammen.
+Die Version `v1.0.0` fasst den aktuellen Funktionsumfang in einem stabilen Release zusammen.
 
 ## Projektstatus
 
