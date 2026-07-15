@@ -22,7 +22,7 @@ Der Fokus dieser Version liegt auf lokaler Datenhaltung, Verschlüsselung, Benut
 
 ## Projektstatus
 
-Diese Version markiert den ersten sauberen Stand des Projekts für GitHub und Bewerbungsgespräche.  
+Diese Version markiert den ersten stabilen Stand des Projekts.  
 PMX ist nicht für den produktiven Einsatz als echter Passwortmanager freigegeben und wurde nicht extern auditiert.
 
 ## Lokaler Start
