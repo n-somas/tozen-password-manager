@@ -193,6 +193,12 @@ Anwendung starten:
 mvn javafx:run
 ```
 
+## Version
+
+Aktueller Release Stand: `v1.0.0`
+
+Die Version `v1.0.0` fasst den ersten sauberen Projektstand für GitHub und Bewerbungsgespräche zusammen.
+
 ## Projektstatus
 
 PMX ist ein Bewerbungs- und Lernprojekt mit Fokus auf Java, JavaFX, lokaler Datenhaltung, Verschlüsselung, UI Entwicklung und sauberer Dokumentation.
